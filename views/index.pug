@@ -1,0 +1,13 @@
+extends ./templates/default.pug
+
+block content
+    h1(class="prop-heading") Nasze wróżby
+    ul(class="prop-list")
+        each wrozba in wrozby
+            - let header = wrozbyData[wrozba].header || null
+            - let styleString = ""; styleString += (header) ? " background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("+header+")" : "";
+            li(class=("prop-card" + (header ?" imaged":" bland")) data-header=header style=styleString)
+                p(class="prop-title")= wrozba
+                a(class="prop-link" href=`/wrozba/${wrozba}`)
+                p= wrozbyData[wrozba].opis
+                

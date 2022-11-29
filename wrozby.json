@@ -1,0 +1,22 @@
+{
+    "Jedzenie": {
+        "link": "https://wheelofnames.com/k6j-re4",
+        "opis": "Jaki będzie twój ostatni posiłek w Kauflandzie? 🤔",
+        "header": "/img/jedzenie.jpg"
+    },
+    "Napoje": {
+        "link": "https://wheelofnames.com/v7b-49w",
+        "opis": "Co będziesz pił na swoim weselu?",
+        "header": "/img/crazywolf.jpg"
+    },
+    "Przysmaki": {
+        "link": "https://wheelofnames.com/ms5-v3z",
+        "opis": "Jaka jest Twoja delicja?",
+        "header": "/img/slodycz.jpg"
+    },
+    "Pieczywo": {
+        "link": "https://wheelofnames.com/vrw-u5k",
+        "opis": "Twoje ostatnie pieczywo w Kauflandzie.",
+        "header": "/img/pieczywo.jpg"
+    }
+}

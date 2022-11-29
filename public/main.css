@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+body{
+    font-family: Roboto;
+    margin: 0;
+}
+h1{ 
+    text-align: center;
+}
+ul.prop-list{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+li.prop-card{
+    position: relative;
+    border: 2px solid black;
+    margin: 2em;
+    padding: 1em;
+    flex-basis: 30%;
+    min-width: 320px;
+    height: 300px;
+    background-size: cover;
+    color: white;
+    transition: 0.2s;
+}
+li.prop-card:hover{
+    
+
+}
+.prop-title{
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+a.prop-link{
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.header{
+    height: 100px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 1em;
+    border-bottom: 2px solid black;
+    margin-bottom: 1em;
+}
+.header h1{
+    font-size: 2.5em;
+    grid-column: span 1;
+    
+}
+.headerimg{
+   
+    grid-column: span 1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 4em);
+    background-image: url("./img/kaufland-logo.jpg");
+    width: 100%;
+    height: 100px;
+}
+.recall{
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: black;
+    border: 2px solid black;
+    width: min-content;
+    margin: 1em;
+}
+.prop-heading{
+    font-size: 3em;
+    text-align: center;
+}
+
+@media(max-width: 900px){
+    .header{
+        grid-template-columns: 1fr;
+        height: 200px;
+    }
+    .header h1{
+        text-align: center;
+    }
+    .headerimg{
+        background-position: center;
+    }
+}
+@media(max-width: 430px){
+    .header h1{
+        font-size: 2em;
+    }
+}
