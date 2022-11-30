@@ -30,7 +30,7 @@ li.prop-card{
 }
 li.prop-card:hover{
     transform: scale(1.1);
-    filter: brightness(1.6);
+    filter: brightness(1.5);
     box-shadow: 0px 0px 72px -14px red;
 
 }
@@ -84,6 +84,20 @@ a.prop-link{
 .prop-heading{
     font-size: 3em;
     text-align: center;
+}
+h2{
+    text-align: center;
+    border-top: 2px solid black;
+    padding-top: 1em;
+    font-size: 3em;
+}
+li.random{
+    box-shadow: 0px 0px 72px -24px purple;
+}
+li.random:hover{
+    transform: scale(1.1);
+    filter: brightness(1.5);
+    box-shadow: 0px 0px 72px -14px purple;
 }
 
 @media(max-width: 900px){

@@ -10,4 +10,13 @@ block content
                 p(class="prop-title")= wrozba
                 a(class="prop-link" href=`/wrozba/${wrozba}`)
                 p= wrozbyData[wrozba].opis
-                
+    
+    h2 Strefa nagrud
+    ul(class="prop-list")
+        each wrozba in wrozbyLosy
+            - let header = wrozbyLosyData[wrozba].header || null
+            - let styleString = ""; styleString += (header) ? " background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("+header+")" : "";
+            li(class=("prop-card random" + (header ?" imaged":" bland")) data-header=header style=styleString)
+                p(class="prop-title")= wrozba
+                a(class="prop-link" href=`/wrozba/${wrozba}`)
+                p= wrozbyLosyData[wrozba].opis     

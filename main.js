@@ -13,20 +13,48 @@ const PORT = 3002;
 
 const getWrozby = () => {
       let rawString = fs.readFileSync("./wrozby.json");
-      const JSONOBJ = JSON.parse(rawString);
+      const wrozbyData = JSON.parse(rawString);
 
-      const wrozby = Object.keys(JSONOBJ);
-      return [wrozby, JSONOBJ];
+      const wrozby = Object.keys(wrozbyData);
+
+      let wrozbyBezlosow = wrozby.filter((el) => !el.includes("Losuj"));
+      let wrozbyBezLosowData = {};
+      wrozbyBezlosow.forEach((el) => (wrozbyBezLosowData[el] = wrozbyData[el]));
+      let wrozbyLosy = wrozby.filter((el) => el.includes("Losuj"));
+      let wrozbyLosyData = {};
+      wrozbyLosy.forEach((el) => (wrozbyLosyData[el] = wrozbyData[el]));
+
+      return [
+            wrozby,
+            wrozbyData,
+            wrozbyBezlosow,
+            wrozbyBezLosowData,
+            wrozbyLosy,
+            wrozbyLosyData,
+      ];
 };
 
-let [wrozby, wrozbyData] = getWrozby();
+let [
+      wrozby,
+      wrozbyData,
+      wrozbyBezlosow,
+      wrozbyBezLosowData,
+      wrozbyLosy,
+      wrozbyLosyData,
+] = getWrozby();
 
 app.listen(PORT, () => {
       console.log("App listening on port " + PORT);
 });
 
 app.get("/", (req, res) => {
-      res.render("index", { title: "Kaufiec", wrozby, wrozbyData });
+      res.render("index", {
+            title: "Kaufiec",
+            wrozby: wrozbyBezlosow,
+            wrozbyData: wrozbyBezLosowData,
+            wrozbyLosy,
+            wrozbyLosyData,
+      });
 });
 app.get("/wrozba/:nazwa", (req, res) => {
       const { nazwa } = req.params;
@@ -37,6 +65,13 @@ app.get("/wrozba/:nazwa", (req, res) => {
       });
 });
 app.get("/odswiezwrozby", (req, res) => {
-      [wrozby, wrozbyData] = getWrozby();
+      [
+            wrozby,
+            wrozbyData,
+            wrozbyBezlosow,
+            wrozbyBezLosowData,
+            wrozbyLosy,
+            wrozbyLosyData,
+      ] = getWrozby();
       return res.send(wrozby);
 });
